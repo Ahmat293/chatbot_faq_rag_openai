@@ -10,3 +10,4 @@ pyttsx3
 streamlit-mic-recorder
 spacy
 mistralai
+protobuf==3.20.3
