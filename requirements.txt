@@ -1,0 +1,10 @@
+streamlit
+openai
+chromadb
+langchain
+tiktoken
+pdfplumber
+python-dotenv
+pyttsx3
+spacy
+mistralai
