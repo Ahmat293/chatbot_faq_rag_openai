@@ -3,7 +3,8 @@ import pdfplumber
 from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma  # ✅ nouveau import
+from langchain.vectorstores import Chroma
+
 
 load_dotenv()
 
