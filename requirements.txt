@@ -1,10 +1,12 @@
 streamlit
-openai
-chromadb
 langchain
-tiktoken
+langchain-openai
+langchain-community
+langchain-chroma
+openai
 pdfplumber
 python-dotenv
 pyttsx3
+streamlit-mic-recorder
 spacy
 mistralai
