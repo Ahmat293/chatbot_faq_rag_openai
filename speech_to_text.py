@@ -2,7 +2,10 @@ import tempfile
 from openai import OpenAI
 import streamlit as st
 
-client = OpenAI(api_key=st.secrets["openai_api_key"])
+
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+
 
 def transcribe_audio(audio_bytes):
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp_file:
