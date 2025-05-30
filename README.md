@@ -1,11 +1,13 @@
 # 💼 ChatAdam – Chatbot d'entreprise avec RAG & interface vocale
 
+[![Deploy on Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://chatbotfaqragopenai-wxy7on9id29afemtynd2v3.streamlit.app)
+
 ---
 
 ## 🚀 Description
 
 ChatAdam est un assistant intelligent capable de répondre aux questions des collaborateurs d'une entreprise à partir de documents internes (PDF).  
-Il utilise une architecture RAG (Retrieval-Augmented Generation) avec recherche sémantique et génération de réponses via GPT-4.
+Il utilise une architecture **RAG (Retrieval-Augmented Generation)** combinant recherche sémantique et génération de réponses via GPT-4.
 
 💡 L'application est également capable :
 - de transcrire la voix via **Whisper**
@@ -27,15 +29,15 @@ Il utilise une architecture RAG (Retrieval-Augmented Generation) avec recherche 
 
 ## 🧱 Architecture technique
 
-| Module              | Usage                                                  |
-|---------------------|--------------------------------------------------------|
-| **LangChain**       | Chaîne RAG (retrieval + génération)                    |
-| **ChromaDB**        | Stockage vectoriel des chunks (⚠️ en local uniquement) |
-| **OpenAI GPT-4**    | Génération des réponses                                |
-| **Whisper API**     | Transcription vocale                                   |
-| **pyttsx3**         | Synthèse vocale (TTS)                                  |
-| **Streamlit**       | Interface Web interactive                              |
-| **streamlit-mic-recorder** | Enregistrement de la voix dans l'UI             |
+| Module                   | Usage                                                   |
+|--------------------------|---------------------------------------------------------|
+| **LangChain**            | Chaîne RAG (retrieval + génération)                     |
+| **FAISS**                | Stockage vectoriel des chunks (⚠️ mémoire, sans persistence cross-session) |
+| **OpenAI GPT-4**         | Génération des réponses                                 |
+| **Whisper API**          | Transcription vocale                                    |
+| **pyttsx3**              | Synthèse vocale (TTS)                                   |
+| **Streamlit**            | Interface Web interactive                               |
+| **streamlit-mic-recorder** | Enregistrement de la voix dans l'UI                   |
 
 ---
 
@@ -58,7 +60,7 @@ Il utilise une architecture RAG (Retrieval-Augmented Generation) avec recherche 
 ```bash
 git clone https://github.com/Ahmat293/chatbot_faq_rag_openai.git
 cd chatbot_faq_rag_openai
-```
+
 
 2. Créer un fichier `.env` :
 

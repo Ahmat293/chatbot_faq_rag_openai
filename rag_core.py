@@ -1,12 +1,12 @@
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-DB_FOLDER = "chroma_db"
+DB_FOLDER = "faiss_db"
 
 def ask_question(question, vectorstore_name):
     """
@@ -14,10 +14,12 @@ def ask_question(question, vectorstore_name):
     """
     doc_db_folder = os.path.join(DB_FOLDER, vectorstore_name)
     embeddings = OpenAIEmbeddings()
-    vectorstore = Chroma(
-        persist_directory=doc_db_folder,
-        embedding_function=embeddings
+    vectorstore = FAISS.load_local(
+        doc_db_folder,
+        embeddings,
+        allow_dangerous_deserialization=True
     )
+
     retriever = vectorstore.as_retriever()
     llm = ChatOpenAI(temperature=0, model="gpt-4o")
 
