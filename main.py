@@ -256,7 +256,7 @@ with st.sidebar:
     st.markdown('</div>', unsafe_allow_html=True)
 
     # ---- footer -------------------------------------------------------------
-    st.caption("Made with ❤️ by Ahmat Adam")
+    st.caption("by Ahmat Adam")
 
 # -----------------------------------------------------------------------------#
 # 🏠  Mise en page principale                                                 #
