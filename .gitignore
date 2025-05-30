@@ -1,2 +1,4 @@
 .env
 secrets.toml
+*.pyc
+chroma_db

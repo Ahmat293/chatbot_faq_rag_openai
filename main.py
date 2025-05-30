@@ -45,18 +45,18 @@ html, body, [class*="css"] {
 
 /* ---------- Sidebar ----------------------------------------------------- */
 section[data-testid="stSidebar"] {
-  background: linear-gradient(180deg, var(--primary), var(--primary-d));
+  background: #f9fafb; /* gris très clair */
   padding: 1rem 1.5rem 2rem;
-  color: #fff;
+  color: #111827; /* gris foncé */
 }
 
 section[data-testid="stSidebar"] * {
-  color: #fff !important;
+  color: #111827 !important; /* texte sombre partout */
 }
 
 /* ---------- Cartes de la sidebar ---------------------------------------- */
 .sidebar-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff; /* blanc pur */
   color: var(--gray-900);
   border-radius: 1rem;
   padding: 1.2rem;
@@ -186,6 +186,7 @@ button[data-testid="baseButton-chat_form-micro_chat"]:hover {
 
 </style>
 """
+
 
 
 st.markdown(CSS, unsafe_allow_html=True)
