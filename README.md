@@ -1,107 +1,92 @@
-# 💼 ChatAdam – Chatbot d'entreprise avec RAG & interface vocale
 
-[![Deploy on Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://chatbotfaqragopenai-wxy7on9id29afemtynd2v3.streamlit.app)
+# 💼 ChatAdam – Chatbot d'entreprise avec RAG & interface vocale
 
 ---
 
 ## 🚀 Description
 
-ChatAdam est un assistant intelligent capable de répondre aux questions des collaborateurs d'une entreprise à partir de documents internes (PDF).  
-Il utilise une architecture **RAG (Retrieval-Augmented Generation)** combinant recherche sémantique et génération de réponses via GPT-4.
+ChatAdam est un assistant intelligent conçu pour répondre aux questions des collaborateurs à partir de documents internes (PDF).  
+Il repose sur une architecture **RAG (Retrieval-Augmented Generation)** combinée à la puissance de **GPT-4**.
 
-💡 L'application est également capable :
-- de transcrire la voix via **Whisper**
-- de lire les réponses à voix haute (TTS)
-- de convertir des unités & devises
+💡 Fonctions incluses :
+- Recherche intelligente dans les PDF avec embeddings
+- Transcription vocale via **Whisper**
+- Lecture des réponses à voix haute (TTS)
+- Conversion rapide d’unités et de devises
 
-🎓 Ce projet a été réalisé dans le cadre du module **NLP** de Ynov Campus.
+🎓 Projet réalisé dans le cadre du module **NLP** de Ynov Campus.
 
 ---
 
 ## 🎯 Objectifs
 
-- Interroger un ou plusieurs documents PDF internes
-- Générer des réponses précises grâce à OpenAI GPT-4
-- Utiliser une interface Streamlit claire, moderne et vocale
-- Bonus : conversions d’unités et devises
+- Permettre l’interrogation de documents internes PDF
+- Générer des réponses précises et contextualisées
+- Offrir une interface web conviviale et moderne avec **Streamlit**
+- Intégrer des options vocales pour accessibilité et fluidité
+- Fournir des outils bonus comme les conversions intégrées
 
 ---
 
 ## 🧱 Architecture technique
 
-| Module                   | Usage                                                   |
-|--------------------------|---------------------------------------------------------|
-| **LangChain**            | Chaîne RAG (retrieval + génération)                     |
-| **FAISS**                | Stockage vectoriel des chunks (⚠️ mémoire, sans persistence cross-session) |
-| **OpenAI GPT-4**         | Génération des réponses                                 |
-| **Whisper API**          | Transcription vocale                                    |
-| **pyttsx3**              | Synthèse vocale (TTS)                                   |
-| **Streamlit**            | Interface Web interactive                               |
-| **streamlit-mic-recorder** | Enregistrement de la voix dans l'UI                   |
+| Module                        | Usage                                                   |
+|-------------------------------|---------------------------------------------------------|
+| **LangChain**                 | Chaîne RAG (retrieval + génération)                     |
+| **FAISS**                     | Stockage vectoriel des chunks (⚠️ compatible cloud)     |
+| **OpenAI GPT-4**              | Génération des réponses                                 |
+| **OpenAI Whisper API**        | Transcription vocale                                    |
+| **pyttsx3**                   | Synthèse vocale (TTS)                                   |
+| **Streamlit**                 | Interface Web interactive                               |
+| **streamlit-mic-recorder**    | Enregistrement vocal dans l’interface                  |
 
 ---
 
 ## 🧪 Fonctionnalités principales
 
-- 📤 **Upload de documents PDF**
-- 🧠 **Recherche intelligente** (RAG + embeddings)
-- 💬 **Interface conversationnelle**
-- 🎤 **Entrée vocale** avec Whisper
-- 🔊 **Lecture vocale** des réponses
-- 🌗 **Mode sombre**
-- 🔧 **Outils de conversion**
+- 📤 Upload de documents PDF
+- 🧠 Recherche sémantique (RAG + embeddings)
+- 💬 Interface conversationnelle moderne
+- 🎤 Entrée vocale (Whisper)
+- 🔊 Lecture vocale des réponses
+- 🌗 Mode sombre (expérimental)
+- 🔧 Outils de conversion (unités & devises)
 
 ---
 
 ## 🖥️ Lancer en local
 
-1. Cloner le repo :
-
+1️⃣ **Cloner le projet :**
 ```bash
 git clone https://github.com/Ahmat293/chatbot_faq_rag_openai.git
 cd chatbot_faq_rag_openai
+```
 
-
-2. Créer un fichier `.env` :
-
+2️⃣ **Créer le fichier `.env` :**
 ```
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-3. Installer les dépendances :
-
+3️⃣ **Installer les dépendances :**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Lancer :
-
+4️⃣ **Lancer l’application :**
 ```bash
 streamlit run main.py
 ```
 
 ---
 
-## 🎤 Fonctionnement du vocal (Whisper)
-
-Pour poser une question à l'oral :
-1. Clique sur le bouton **🎤 micro** dans l'onglet **Discussion**
-2. Parle dans ton micro
-3. Clique sur le bouton **🔴 rouge** pour arrêter l'enregistrement
-4. Clique sur **Envoyer** pour déclencher la transcription
-5. Le chatbot affiche la réponse ET peut la lire à voix haute (TTS)
-
-> ⚠️ Assure-toi d'autoriser l'accès au micro sur ton navigateur.
-
----
-
 ## 🌍 Déploiement Streamlit Cloud
 
-⚠️ ChromaDB nécessite `sqlite3 ≥ 3.35`.  
-Streamlit Cloud ne supporte pas encore cette version → à remplacer par FAISS ou fallback léger.
+✅ Version FAISS compatible Cloud (sqlite limitations contournées).
 
-🔗 Démo en ligne :  
+🔗 Lien démo en ligne :  
 https://chatbotfaqragopenai-wxy7on9id29afemtynd2v3.streamlit.app
+
+> Si besoin, cliquer sur **Reboot** dans Streamlit Cloud pour tirer les dernières modifications après un push Git.
 
 ---
 
@@ -109,19 +94,18 @@ https://chatbotfaqragopenai-wxy7on9id29afemtynd2v3.streamlit.app
 
 ```
 chatbot_faq_rag_openai/
-├── .env                      # Clé OpenAI
-├── main.py                  # Interface principale Streamlit
-├── document_loader.py       # Chargement + vectorisation PDF
-├── rag_core.py              # Logique RAG
-├── speech_to_text.py        # Transcription vocale
-├── text_to_speech.py        # Lecture vocale des réponses
-├── requirements.txt         # Dépendances
-├── notebooks/               # TP1 à TP5
-├── chroma_db/               # DB vectorielle (⚠️ local only)
+├── .env                      # Clé API OpenAI
+├── main.py                   # Interface principale Streamlit
+├── document_loader.py        # Chargement + vectorisation PDF
+├── rag_core.py               # Logique RAG
+├── speech_to_text.py         # Transcription vocale
+├── text_to_speech.py         # Lecture vocale (TTS)
+├── requirements.txt          # Dépendances
+├── notebooks/                # Travaux pratiques
+├── chroma_db/ (local)        # Ancienne DB (remplacée par FAISS)
 └── .streamlit/
-    └── secrets.toml         # Clé API pour déploiement
+    └── secrets.toml          # Clé API pour déploiement cloud
 ```
-
 ---
 
 ## 🧪 TP1 à TP5 inclus
@@ -135,6 +119,18 @@ chatbot_faq_rag_openai/
 
 ---
 
+---
+
+## 🎤 Fonctionnement vocal
+
+1. Clique sur le micro **🎤** pour enregistrer une question.  
+2. Clique sur le bouton rouge **🔴** pour arrêter l’enregistrement.  
+3. Clique sur **Envoyer** pour lancer la transcription et recevoir une réponse (écrite + vocale).
+
+> Assure-toi d’avoir donné les autorisations micro au navigateur.
+
+---
+
 ## 👤 Auteur
 
 **Ahmat Adam Goukouni**  
@@ -145,5 +141,6 @@ GitHub : [@Ahmat293](https://github.com/Ahmat293)
 
 ## ✅ Statut du projet
 
-Projet terminé, fonctionnel, déployé et prêt pour présentation.  
-Accès partagé au professeur : `kevin.duranty@quera.fr`
+✅ Projet fonctionnel, déployé, prêt à la démonstration.  
+Dernières optimisations : compatibilité cloud FAISS, améliorations CSS, nettoyage du repo.
+
